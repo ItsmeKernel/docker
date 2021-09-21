@@ -11,5 +11,5 @@ Note that these images serve the content of the volume mounted under _/notebooks
 
 You can run any of this container by executing something along these lines:
 ```
-docker run --name ds-jupyterlab -p 8888:8888 -v /Users/MyUser/Projects/DataScience/notebooks:/notebooks/ -it augusto1982/base-jupyter
+docker run --name ds-jupyterlab -p 8888:8888 -v /path/to/my/notebooks:/notebooks/ -it augusto1982/base-jupyter
 ```
