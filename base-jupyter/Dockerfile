@@ -11,9 +11,10 @@ RUN mkdir ${NB_DIR} && \
     chgrp ${NB_GID} ${NB_DIR} &&\
     chmod g+rwX ${NB_DIR} && \
     pip3 install --no-cache-dir -r requirements.txt && \
-    pip3 install jupyter jupyterlab
+    pip3 install --no-cache-dir jupyter jupyterlab
 ENV TINI_VERSION v0.6.0
 ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /usr/bin/tini
 RUN chmod +x /usr/bin/tini
 ENTRYPOINT ["/usr/bin/tini", "--"]
-CMD ["jupyter", "lab", "--port=8888", "--no-browser", "--ip=0.0.0.0", "--notebook-dir=/notebooks/", "--allow-root"]
+USER ${NB_UID}
+CMD ["jupyter", "lab", "--port=8888", "--no-browser", "--ip=0.0.0.0", "--notebook-dir=/notebooks/"]
