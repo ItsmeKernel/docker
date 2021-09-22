@@ -1,6 +1,5 @@
 imbalanced-learn
 matplotlib
-nltk
 numpy
 pandas
 plotly
